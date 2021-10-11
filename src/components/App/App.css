@@ -1,12 +1,18 @@
 .app {
   display: flex;
-  flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  justify-content: center;
 }
 
 .app__input {
   margin-bottom: 10px;
   max-width: 100px;
   max-height: 15px;
+}
+
+.app__center-line {
+  border-right: 1px solid rgb(0, 153, 255);
+  height: 500px;
+  margin: 40px 50px 0 50px;
 }
