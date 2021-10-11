@@ -13,5 +13,5 @@ export const newReducer = (state = initState, action) => {
       return { ...state, secondName: action.payload};
     default: break;
   }
-  return state
+  return state;
 };

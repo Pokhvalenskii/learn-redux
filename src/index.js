@@ -7,30 +7,51 @@ import { connect, Provider } from 'react-redux';
 import * as typesFunctions from './actions/NameActions'
 import { newReducer } from './reducers/Name';
 
-const store = createStore(newReducer);
-console.log('Store: ', store.getState());
+/////////////////////////////////////////////
+import rootReducer from './store/reducers'
+/////////////////////////////////////////////
 
-const putStateToProps = (state) => {
-  console.log('mapState ', state);
+
+const store = createStore(rootReducer);
+
+console.log('store ', store)
+
+// const putStateToProps = (state) => {
+//   return {
+//     firstName: state.firstName,
+//     secondName: state.secondName
+//   }
+// }
+
+// const putActionToProps = (dispatch) => {
+//   return {
+//     changeFirstName: bindActionCreators(typesFunctions.changeFirstName, dispatch),
+//     changeSecondName: bindActionCreators(typesFunctions.changeSecondName, dispatch)
+//   }
+// }
+
+// const WrapperMainComponent  = connect(putStateToProps, putActionToProps)(App)
+
+const mapStateToProps = () => {
   return {
-    firstName: state.firstName,
-    secondName: state.secondName
+
   }
 }
 
-const putActionToProps = (dispatch) => {
+const mapDispatchToProps = () => {
   return {
-    changeFirstName: bindActionCreators(typesFunctions.changeFirstName, dispatch),
-    changeSecondName: bindActionCreators(typesFunctions.changeSecondName, dispatch)
+
   }
 }
 
-const WrapperMainComponent  = connect(putStateToProps, putActionToProps)(App)
+const WrapperMainComponent = connect(mapStateToProps, mapDispatchToProps)(App);
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={ store }>
       <WrapperMainComponent />
+      {/* <App /> */}
     </Provider>    
   </React.StrictMode>,
   document.getElementById('root')

@@ -5,9 +5,6 @@ import SignUp from '../SignUp/SignUp';
 
 function App(props) {
 
-  const { firstName, secondName, changeFirstName, changeSecondName } = props;
-  console.log('props, ', props)
-
   return (
     <div className="app">
       {/* <input 
