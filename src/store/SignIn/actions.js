@@ -1,16 +1,8 @@
-export const signInChangeUserName = 'signInChangeUserName';
-export const signInChangeUserPassword = 'signInChangeUserPassword';
+// export const SET_PASSWORD = 'SET_PASSWORD';
+// export const SET_CONFIRM_PASSWORD = 'SET_CONFIRM_PASSWORD';
+// export const SET_EMAIL = 'SET_EMAIL';
+// export const SET_USERNAME = 'SET_USERNAME';
 
-export const setName = (name) => {
-  return {
-    type: signInChangeUserName,
-    payload: name
-  }
-}
+export const SIGNIN_SET_PASSWORD = 'SIGNIN_SET_PASSWORD';
+export const SIGNIN_SET_EMAIL = 'SIGNIN_SET_EMAIL';
 
-export const setPassword = (password) => {
-  return {
-    type: signInChangeUserPassword,
-    payload: password
-  }
-}

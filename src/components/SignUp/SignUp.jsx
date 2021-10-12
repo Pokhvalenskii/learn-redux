@@ -1,6 +1,6 @@
 import './SignUp.css';
 
-function SignUp(props) {
+function SignUp() {
   return (
     <section className='signUp'>
       <p className='signUp__title'>SignUp</p>
