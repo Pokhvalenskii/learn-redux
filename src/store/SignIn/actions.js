@@ -1,8 +1,3 @@
-// export const SET_PASSWORD = 'SET_PASSWORD';
-// export const SET_CONFIRM_PASSWORD = 'SET_CONFIRM_PASSWORD';
-// export const SET_EMAIL = 'SET_EMAIL';
-// export const SET_USERNAME = 'SET_USERNAME';
-
 export const SIGNIN_SET_PASSWORD = 'SIGNIN_SET_PASSWORD';
 export const SIGNIN_SET_EMAIL = 'SIGNIN_SET_EMAIL';
 
