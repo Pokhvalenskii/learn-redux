@@ -1,41 +1,46 @@
 import './SignIn.css'
 import { useSelector, useDispatch } from 'react-redux';
 import  * as types from '../../store/signIn/actions'
+import { useForm } from 'react-hook-form';
 
 function SignIn() {
 
   const item = useSelector((state) => state.signIn)
   const dispatch = useDispatch()
 
-  function handleSubmit(e) {
-    e.preventDefault()    
-    console.log('SUBMIT CLICK', item)
-  }
+  const regEmail = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
 
-  function handlePassword(e) {    
-    dispatch({
-      type: types.SIGNIN_SET_PASSWORD,
-      payload: e.target.value
-    })
-    console.log('storeItem', item)
-  }
+  const { 
+    register, 
+    handleSubmit, 
+    formState: {errors, submitCount},
+    watch,
 
-  function handleEmail(e) {
+  } = useForm({mode: 'onChange'});
+  
+  const onSubmit = data => {
     dispatch({
       type: types.SIGNIN_SET_EMAIL,
-      payload: e.target.value
+      payload: data.email
     })
-    console.log('storeItem', item)
+    dispatch({
+      type: types.SIGNIN_SET_PASSWORD,
+      payload: data.password
+    })
+    console.log('Отправлено: ', data)
   }
+
+  console.log('ErrorIn: ', errors)
+  console.log('itemIn: ', item)
 
   return (
     <section className='signIn'>
       <p className='signIn__title'>SignIn</p>
-      <form className='signIn__form' onSubmit={handleSubmit}>
-        <p className='signIn__text'>name</p>
-        <input type="text" className='signIn__input' onChange={handleEmail}/>
-        <p className='signIn__text'>password</p>
-        <input type="password" className='signIn__input' onChange={handlePassword}/>
+      <form className='signIn__form' onSubmit={handleSubmit(onSubmit)}>
+        <p className='signIn__text'>Email</p>
+        <input type="text" className='signIn__input' {...register('email', {required: true, pattern: regEmail})} />
+        <p className='signIn__text'>Password</p>
+        <input type="password" className='signIn__input' {...register('password', {required: true, minLength:3, maxLength:30})} />
         <button type='submit'>submit</button>
       </form>
     </section>
