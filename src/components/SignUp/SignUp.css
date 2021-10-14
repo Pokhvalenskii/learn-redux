@@ -1,9 +1,9 @@
-.signUp {
+/* .signUp {
   display: flex;
   flex-direction: column;
-}
+} */
 
-.signUp__form {
+/* .signUp__form {
   border: 2px solid rgb(0, 153, 255);
   border-radius: 5px;
   width: 300px;
@@ -13,7 +13,7 @@
   align-items: center;
   box-sizing: border-box;
   padding: 10px;
-}
+} */
 
 /* .signUp__input {
   width: 100%;

@@ -2,6 +2,11 @@ import './SignIn.css'
 import { useSelector, useDispatch } from 'react-redux';
 import  * as types from '../../store/signIn/actions'
 import { useForm } from 'react-hook-form';
+import { Box } from '@mui/system';
+import { Button, Typography, Link } from '@mui/material';
+import TextField from '@mui/material/TextField'
+import { Link as RouterLink } from 'react-router-dom'
+
 
 function SignIn() {
 
@@ -34,16 +39,68 @@ function SignIn() {
   console.log('itemIn: ', item)
 
   return (
-    <section className='signIn'>
-      <p className='signIn__title'>SignIn</p>
-      <form className='signIn__form' onSubmit={handleSubmit(onSubmit)}>
-        <p className='signIn__text'>Email</p>
-        <input type="text" className='signIn__input' {...register('email', {required: true, pattern: regEmail})} />
-        <p className='signIn__text'>Password</p>
-        <input type="password" className='signIn__input' {...register('password', {required: true, minLength:3, maxLength:30})} />
-        <button type='submit'>submit</button>
-      </form>
-    </section>
+    <Box 
+      component='section'
+      sx={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <Typography 
+        component='p'
+        variant='h5'
+        align='center'
+        sx={{
+          mb: 2
+        }}
+      >
+        SignIn
+      </Typography>
+      <Box 
+        onSubmit={handleSubmit(onSubmit)}
+        component='form'
+        sx={{
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
+        <TextField
+          type='email'
+          variant='outlined'
+          sx={{mb: 1}}
+          label='Email'
+          {...register('email', {required: true, pattern: regEmail})} 
+        />
+        <TextField 
+          type="password" 
+          {...register('password', {required: true, minLength:3, maxLength:30})}
+          label='Password'
+          variant='outlined'
+          sx={{mb: 1}} 
+        />
+        <Button 
+          type='submit'
+          variant='contained'
+          sx={{
+            mt: 2,
+            height: 56
+          }}
+        >
+          Sign In
+        </Button>
+      </Box>
+      <Link 
+        underline='none'
+        component={RouterLink}
+        to='/signup'
+        sx={{
+          mt: 2,
+        }}
+        align='center'
+      >
+        Sign Up
+      </Link>
+    </Box>
   )
 }
 
