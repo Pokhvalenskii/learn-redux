@@ -12,7 +12,7 @@ function App() {
   const [posts, setPosts] = useState({});
   useEffect(() => {
     initPosts();
-  }, []);  
+  }, []);
 
   function initPosts() {
     return api.showPosts()

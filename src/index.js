@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 const store = createStore(rootReducer)
-console.log(store.getState());
+// console.log(store.getState());
 
 ReactDOM.render(
   <React.StrictMode>
